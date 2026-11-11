@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050a05">
+  <title>دليل حسابات تيليجرام - Darknetsailor</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Share+Tech+Mono&display=swap');
+    :root{--green:#00ff41;--muted:#8ba18d;--panel:#071407;--bg:#050a05}
+    *{box-sizing:border-box}
+    body{margin:0;background-color:var(--bg);background-image:linear-gradient(rgba(0,255,65,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,65,.035) 1px,transparent 1px);background-size:20px 20px;color:#e8eee8;font-family:'Cairo',sans-serif}
+    .wrap{width:min(1100px,94%);margin:auto}
+    header{text-align:center;padding:30px 10px 18px}
+    h1,h2,h3{color:var(--green);margin:8px 0}
+    h1{font-size:clamp(30px,6vw,52px);text-shadow:0 0 18px #00ff4166}
+    .brand{font:900 clamp(25px,5vw,42px) 'Share Tech Mono',monospace;letter-spacing:3px;color:var(--green);text-shadow:0 0 18px #00ff4177}
+    .sub{color:#9caf9d;margin:8px 0}
+    .line{border:0;border-top:1px solid #087a25;margin:18px 0 24px}
+    .ad-label{font-size:11px;color:#6e8c72;text-align:center;margin-bottom:5px}
+    .ad-slot{min-height:58px;margin:14px auto;padding:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center;border:1px dashed #174b22;border-radius:9px;background:#061006}
+    .ad-slot.tall{min-height:100px}
+    .sponsor{display:block;text-align:center;color:#c8e9cc;background:#0a1c0a;border:1px solid #087a25;border-radius:9px;padding:12px;text-decoration:none;font-weight:700}
+    .sponsor:hover{background:#103010;color:var(--green)}
+    .panel{background:#071407eF;border:1px solid #087a25;border-radius:12px;padding:18px;margin:18px 0;box-shadow:0 0 18px #00ff4110}
+    .search-row{display:flex;gap:10px}
+    input{min-width:0;flex:1;background:#0a1c0a;border:1px solid var(--green);border-radius:8px;color:var(--green);padding:13px;font:16px 'Cairo',sans-serif;outline:none}
+    button{background:#0a1c0a;color:var(--green);border:1px solid var(--green);border-radius:8px;padding:10px 20px;font:700 15px 'Cairo',sans-serif;cursor:pointer}
+    button:hover{background:var(--green);color:#050a05;box-shadow:0 0 14px #00ff4166}
+    button:disabled{opacity:.45;cursor:not-allowed}
+    .status{text-align:center;color:#a8c5ab;margin:14px 0;min-height:28px}
+    .stats{text-align:center;color:#b9cbbb;margin:12px 0}
+    .stats strong{color:var(--green);font: bold 22px 'Share Tech Mono',monospace}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{background:#071407;border:1px solid #00a82b;border-left:5px solid var(--green);border-radius:10px;padding:16px;min-width:0}
+    .card h3{color:#fff;font-size:19px;border-bottom:1px dashed #087a25;padding-bottom:9px;overflow-wrap:anywhere}
+    .field{padding:5px 0;overflow-wrap:anywhere}
+    .label{color:#00aa33;font-weight:700}
+    .value{color:var(--green);font-family:'Share Tech Mono',monospace;direction:ltr;unicode-bidi:plaintext}
+    .empty{color:#667568}
+    .pagination{display:flex;justify-content:center;align-items:center;gap:12px;margin:22px 0;flex-wrap:wrap}
+    .footer{text-align:center;padding:25px 10px 35px;color:#6c8b70;border-top:1px solid #087a25;margin-top:28px}
+    .footer a{color:var(--green);text-decoration:none;margin:0 8px}
+    .note{font-size:13px;color:#91a893;line-height:1.8}
+    @media(max-width:650px){.grid{grid-template-columns:1fr}.search-row{flex-direction:column}.search-row button{width:100%}.panel{padding:13px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>دليل حسابات تيليجرام</h1>
+      <div class="sub">محرك بحث في البيانات العامة المصرح بنشرها</div>
+      <div class="brand">DARKNETSAILOR</div>
+      <div class="sub">Telegram Public Directory</div>
+    </header>
+
+    <div class="ad-label">مساحة إعلانية</div>
+    <div class="ad-slot">
+      <script data-cfasync="false" src="https://bauval.org/14/d5b53f63b4cb271066fa44c8a4329012"></script>
+    </div>
+
+    <a class="sponsor" href="https://araplhn.org/4/9239b31df6c443e95bbb60160f372a35" target="_blank" rel="sponsored nofollow noopener">إعلان ممول — زيارة الراعي</a>
+
+    <hr class="line">
+
+    <section class="panel">
+      <h2>البحث عن حساب</h2>
+      <p class="note">ابحث بالاسم الأول أو اسم العائلة أو اسم المستخدم العام المنشور بموافقة صاحبه. لا يعرض الموقع أرقام الهواتف أو المعرفات الرقمية الخاصة.</p>
+      <div class="search-row">
+        <input id="query" type="search" placeholder="اكتب الاسم أو Username..." autocomplete="off">
+        <button id="searchBtn" type="button">بحث</button>
+      </div>
+      <div id="status" class="status">اضغط «بحث» لبدء تحميل ملفات الدليل.</div>
+      <div id="stats" class="stats"></div>
+    </section>
+
+    <div class="ad-label">إعلان</div>
+    <div class="ad-slot tall">
+      <script data-cfasync="false" src="https://abscloud.org/1/3565e08c94b0fc2c6fd90a0c97183c9d"></script>
+    </div>
+
+    <section id="results" class="grid" aria-live="polite"></section>
+    <div class="pagination">
+      <button id="prev" type="button" disabled>السابق</button>
+      <span id="pageInfo" class="note">صفحة 0 من 0</span>
+      <button id="next" type="button" disabled>التالي</button>
+    </div>
+
+    <div class="ad-label">إعلان</div>
+    <div class="ad-slot tall">
+      <script async="async" data-cfasync="false" src="https://bauval.org/21/092715ad1141e35df7097d05dd0e7368"></script>
+      <div id="container-092715ad1141e35df7097d05dd0e7368"></div>
+    </div>
+
+    <div class="ad-label">إعلان بانر</div>
+    <div class="ad-slot">
+      <script>
+        atOptions = {
+          'key' : '9221121f25f3e38fce00544a6e00a8e5',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://bauval.org/22/9221121f25f3e38fce00544a6e00a8e5"></script>
+    </div>
+
+    <footer class="footer">
+      <div>تابعنا على تيليجرام</div>
+      <p><a href="https://t.me/worm_gptv" target="_blank" rel="noopener">Worm GPT</a></p>
+      <div>المطور: <a href="https://t.me/Falcon_xxa" target="_blank" rel="noopener">@Falcon_xxa</a></div>
+      <p class="note">يعرض هذا الموقع بيانات عامة مصرح بنشرها فقط.</p>
+      <div class="note">System powered by Darknetsailor</div>
+    </footer>
+  </div>
+
+  <script>
+    // أضف أسماء ملفات CSV هنا عند زيادة عدد الملفات.
+    const CSV_FILES = Array.from({length: 14}, (_, i) => `data/Telegram_27_${i + 1}.csv`);
+    const PAGE_SIZE = 20;
+    let allRows = [];
+    let filteredRows = [];
+    let currentPage = 1;
+    let loaded = false;
+
+    const $ = id => document.getElementById(id);
+    const status = message => $('status').textContent = message;
+
+    // CSV parser يدعم الفواصل داخل النصوص المحاطة بعلامات اقتباس.
+    function parseCSV(text) {
+      const sample = text.split(/\r?\n/, 1)[0] || '';
+      const delimiter = sample.includes('|') ? '|' : ',';
+      const rows = [];
+      let row = [], cell = '', quoted = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i], next = text[i + 1];
+        if (c === '"' && quoted && next === '"') { cell += '"'; i++; }
+        else if (c === '"') quoted = !quoted;
+        else if (c === delimiter && !quoted) { row.push(cell); cell = ''; }
+        else if ((c === '\n' || c === '\r') && !quoted) {
+          if (c === '\r' && next === '\n') i++;
+          row.push(cell); cell = '';
+          if (row.some(v => v.trim() !== '')) rows.push(row);
+          row = [];
+        } else cell += c;
+      }
+      row.push(cell);
+      if (row.some(v => v.trim() !== '')) rows.push(row);
+      return rows;
+    }
+
+    function normalizeHeader(value) {
+      return String(value || '').replace(/^\uFEFF/, '').trim().toLowerCase().replace(/[\s-]+/g, '_');
+    }
+
+    function safePublicRecord(headers, values) {
+      const record = {};
+      headers.forEach((h, i) => record[normalizeHeader(h)] = (values[i] || '').trim());
+      const pick = (...keys) => {
+        for (const key of keys) if (record[key]) return record[key];
+        return '';
+      };
+      // لا نقرأ ولا نعرض الهاتف أو User ID أو sys_id أو last_seen.
+      return {
+        first_name: pick('first_name', 'firstname', 'name', 'الاسم', 'الاسم_الأول'),
+        last_name: pick('last_name', 'lastname', 'surname', 'اللقب', 'اسم_العائلة'),
+        nickname: pick('nickname', 'username', 'user_name', 'handle', 'المعرف', 'اسم_المستخدم')
+      };
+    }
+
+    async function loadFiles() {
+      if (loaded) return;
+      status('جاري تحميل ملفات CSV...');
+      const combined = [];
+      const failures = [];
+      for (const file of CSV_FILES) {
+        try {
+          const response = await fetch(file, {cache: 'no-store'});
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const text = await response.text();
+          const parsed = parseCSV(text);
+          if (parsed.length < 2) continue;
+          const headers = parsed[0];
+          for (let i = 1; i < parsed.length; i++) {
+            const item = safePublicRecord(headers, parsed[i]);
+            if (item.first_name || item.last_name || item.nickname) combined.push(item);
+          }
+        } catch (error) {
+          failures.push(file);
+        }
+      }
+      allRows = combined;
+      loaded = true;
+      if (failures.length) {
+        status(`تم تحميل ${allRows.length.toLocaleString('ar-EG')} سجل عام. تعذر فتح ${failures.length} ملف؛ تأكد من أسماء الملفات ومساراتها.`);
+      } else {
+        status(`اكتمل تحميل ${allRows.length.toLocaleString('ar-EG')} سجل عام.`);
+      }
+    }
+
+    function makeCard(record) {
+      const card = document.createElement('article');
+      card.className = 'card';
+      const title = document.createElement('h3');
+      title.textContent = [record.first_name, record.last_name].filter(Boolean).join(' ') || (record.nickname ? '@' + record.nickname : 'حساب');
+      card.appendChild(title);
+      const fields = [
+        ['الاسم الأول', record.first_name],
+        ['اللقب', record.last_name],
+        ['Username', record.nickname ? '@' + record.nickname.replace(/^@/, '') : '']
+      ];
+      for (const [label, value] of fields) {
+        const line = document.createElement('div');
+        line.className = 'field';
+        const l = document.createElement('span'); l.className = 'label'; l.textContent = label + ': ';
+        const v = document.createElement('span'); v.className = value ? 'value' : 'empty'; v.textContent = value || '---';
+        line.append(l, v); card.appendChild(line);
+      }
+      return card;
+    }
+
+    function render() {
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const pageRows = filteredRows.slice(start, start + PAGE_SIZE);
+      const results = $('results');
+      results.replaceChildren();
+      pageRows.forEach(row => results.appendChild(makeCard(row)));
+      const pages = Math.ceil(filteredRows.length / PAGE_SIZE);
+      $('pageInfo').textContent = `صفحة ${pages ? currentPage : 0} من ${pages}`;
+      $('prev').disabled = currentPage <= 1;
+      $('next').disabled = currentPage >= pages;
+      $('stats').textContent = `عدد النتائج: ${filteredRows.length.toLocaleString('ar-EG')} | إجمالي السجلات: ${allRows.length.toLocaleString('ar-EG')}`;
+      if (!filteredRows.length) status('لا توجد نتائج مطابقة في البيانات العامة المتاحة.');
+    }
+
+    async function search() {
+      const button = $('searchBtn');
+      button.disabled = true;
+      try {
+        await loadFiles();
+        const query = $('query').value.trim().toLocaleLowerCase();
+        if (!query) {
+          filteredRows = allRows.slice();
+        } else {
+          filteredRows = allRows.filter(row =>
+            [row.first_name, row.last_name, row.nickname]
+              .some(value => value.toLocaleLowerCase().includes(query))
+          );
+        }
+        currentPage = 1;
+        render();
+      } catch (error) {
+        status('حدث خطأ أثناء قراءة الملفات. تحقق من رفع ملفات CSV إلى مجلد data.');
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    $('searchBtn').addEventListener('click', search);
+    $('query').addEventListener('keydown', event => { if (event.key === 'Enter') search(); });
+    $('prev').addEventListener('click', () => { if (currentPage > 1) { currentPage--; render(); } });
+    $('next').addEventListener('click', () => {
+      if (currentPage < Math.ceil(filteredRows.length / PAGE_SIZE)) { currentPage++; render(); }
+    });
+  </script>
+</body>
+      </html>
