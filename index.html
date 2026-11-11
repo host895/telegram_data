@@ -1,268 +1,508 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050a05">
-  <title>دليل حسابات تيليجرام - Darknetsailor</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Share+Tech+Mono&display=swap');
-    :root{--green:#00ff41;--muted:#8ba18d;--panel:#071407;--bg:#050a05}
-    *{box-sizing:border-box}
-    body{margin:0;background-color:var(--bg);background-image:linear-gradient(rgba(0,255,65,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,65,.035) 1px,transparent 1px);background-size:20px 20px;color:#e8eee8;font-family:'Cairo',sans-serif}
-    .wrap{width:min(1100px,94%);margin:auto}
-    header{text-align:center;padding:30px 10px 18px}
-    h1,h2,h3{color:var(--green);margin:8px 0}
-    h1{font-size:clamp(30px,6vw,52px);text-shadow:0 0 18px #00ff4166}
-    .brand{font:900 clamp(25px,5vw,42px) 'Share Tech Mono',monospace;letter-spacing:3px;color:var(--green);text-shadow:0 0 18px #00ff4177}
-    .sub{color:#9caf9d;margin:8px 0}
-    .line{border:0;border-top:1px solid #087a25;margin:18px 0 24px}
-    .ad-label{font-size:11px;color:#6e8c72;text-align:center;margin-bottom:5px}
-    .ad-slot{min-height:58px;margin:14px auto;padding:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center;border:1px dashed #174b22;border-radius:9px;background:#061006}
-    .ad-slot.tall{min-height:100px}
-    .sponsor{display:block;text-align:center;color:#c8e9cc;background:#0a1c0a;border:1px solid #087a25;border-radius:9px;padding:12px;text-decoration:none;font-weight:700}
-    .sponsor:hover{background:#103010;color:var(--green)}
-    .panel{background:#071407eF;border:1px solid #087a25;border-radius:12px;padding:18px;margin:18px 0;box-shadow:0 0 18px #00ff4110}
-    .search-row{display:flex;gap:10px}
-    input{min-width:0;flex:1;background:#0a1c0a;border:1px solid var(--green);border-radius:8px;color:var(--green);padding:13px;font:16px 'Cairo',sans-serif;outline:none}
-    button{background:#0a1c0a;color:var(--green);border:1px solid var(--green);border-radius:8px;padding:10px 20px;font:700 15px 'Cairo',sans-serif;cursor:pointer}
-    button:hover{background:var(--green);color:#050a05;box-shadow:0 0 14px #00ff4166}
-    button:disabled{opacity:.45;cursor:not-allowed}
-    .status{text-align:center;color:#a8c5ab;margin:14px 0;min-height:28px}
-    .stats{text-align:center;color:#b9cbbb;margin:12px 0}
-    .stats strong{color:var(--green);font: bold 22px 'Share Tech Mono',monospace}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .card{background:#071407;border:1px solid #00a82b;border-left:5px solid var(--green);border-radius:10px;padding:16px;min-width:0}
-    .card h3{color:#fff;font-size:19px;border-bottom:1px dashed #087a25;padding-bottom:9px;overflow-wrap:anywhere}
-    .field{padding:5px 0;overflow-wrap:anywhere}
-    .label{color:#00aa33;font-weight:700}
-    .value{color:var(--green);font-family:'Share Tech Mono',monospace;direction:ltr;unicode-bidi:plaintext}
-    .empty{color:#667568}
-    .pagination{display:flex;justify-content:center;align-items:center;gap:12px;margin:22px 0;flex-wrap:wrap}
-    .footer{text-align:center;padding:25px 10px 35px;color:#6c8b70;border-top:1px solid #087a25;margin-top:28px}
-    .footer a{color:var(--green);text-decoration:none;margin:0 8px}
-    .note{font-size:13px;color:#91a893;line-height:1.8}
-    @media(max-width:650px){.grid{grid-template-columns:1fr}.search-row{flex-direction:column}.search-row button{width:100%}.panel{padding:13px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام البحث والتحري عن معرفات التليجرام - Cyber Finder</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo & Share Tech Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            bg: '#0a0d14',
+                            card: '#121824',
+                            border: '#1e293b',
+                            neonGreen: '#00ff66',
+                            neonCyan: '#00e5ff',
+                            neonPink: '#ff0055',
+                            darkText: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        mono: ['Share Tech Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0a0d14;
+            color: #e2e8f0;
+            font-family: 'Cairo', sans-serif;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 0% 100%, rgba(0, 255, 102, 0.05) 0%, transparent 50%);
+        }
+        
+        .neon-border-cyan {
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2), inset 0 0 10px rgba(0, 229, 255, 0.1);
+            border: 1px solid rgba(0, 229, 255, 0.4);
+        }
+        
+        .neon-border-green {
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+            border: 1px solid rgba(0, 255, 102, 0.6);
+        }
+        
+        .cyber-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        .glitch-text {
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.6), 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0d14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+            border: 1px solid #00e5ff;
+        }
+    </style>
+
+    <!-- Global Ad Scripts -->
+    <script data-cfasync="false" src="https://bauval.org/14/d5b53f63b4cb271066fa44c8a4329012"></script>
+    <script data-cfasync="false" src="https://abscloud.org/1/3565e08c94b0fc2c6fd90a0c97183c9d"></script>
+    <script async="async" data-cfasync="false" src="https://bauval.org/21/092715ad1141e35df7097d05dd0e7368"></script>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>دليل حسابات تيليجرام</h1>
-      <div class="sub">محرك بحث في البيانات العامة المصرح بنشرها</div>
-      <div class="brand">DARKNETSAILOR</div>
-      <div class="sub">Telegram Public Directory</div>
+<body class="cyber-grid min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="border-b border-cyber-border bg-cyber-card/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <i class="fa-solid fa-terminal text-cyber-neonGreen text-3xl animate-pulse"></i>
+                <div>
+                    <h1 class="text-2xl font-black text-white tracking-wide glitch-text">DARK-SNIPER <span class="text-cyber-neonCyan text-sm font-mono">[v3.0.4]</span></h1>
+                    <p class="text-xs text-cyber-darkText">نظام البحث عن بيانات تسريبات التليجرام قاعدة البيانات المتقدمة</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-950/80 text-cyber-neonGreen border border-emerald-500/30">
+                    <span class="w-2 h-2 rounded-full bg-cyber-neonGreen animate-ping"></span>
+                    القواعد متصلة (14 ملف)
+                </span>
+            </div>
+        </div>
     </header>
 
-    <div class="ad-label">مساحة إعلانية</div>
-    <div class="ad-slot">
-      <script data-cfasync="false" src="https://bauval.org/14/d5b53f63b4cb271066fa44c8a4329012"></script>
+    <!-- Header Top Ad Banner -->
+    <div class="max-w-7xl mx-auto w-full px-4 my-4 flex justify-center items-center overflow-hidden">
+        <div class="p-2 bg-cyber-card border border-cyber-border rounded-lg text-center w-full max-w-2xl">
+            <div id="container-092715ad1141e35df7097d05dd0e7368"></div>
+            <script>  
+                atOptions = {  
+                    'key' : '9221121f25f3e38fce00544a6e00a8e5',  
+                    'format' : 'iframe',  
+                    'height' : 50,  
+                    'width' : 320,  
+                    'params' : {}  
+                };  
+            </script>  
+            <script src="https://bauval.org/22/9221121f25f3e38fce00544a6e00a8e5"></script>
+        </div>
     </div>
 
-    <a class="sponsor" href="https://araplhn.org/4/9239b31df6c443e95bbb60160f372a35" target="_blank" rel="sponsored nofollow noopener">إعلان ممول — زيارة الراعي</a>
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto w-full px-4 py-6 flex-grow grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-    <hr class="line">
+        <!-- Left Sidebar (Ads & Files Status) -->
+        <aside class="lg:col-span-1 space-y-6">
+            <!-- Files Loaded Panel -->
+            <div class="bg-cyber-card p-4 rounded-xl border border-cyber-border">
+                <h3 class="text-sm font-bold text-cyber-neonCyan mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-database"></i> الملفات المستهدفة (CSV)
+                </h3>
+                <ul class="text-xs font-mono space-y-1 text-slate-400 max-h-48 overflow-y-auto pr-1">
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_1.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_2.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_3.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_4.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_5.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_6.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_7.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_8.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_9.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_10.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_11.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_12.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_13.csv</span> <span class="text-emerald-400">نشط</span></li>
+                    <li class="flex justify-between py-1 border-b border-slate-800"><span>Telegram_27_14.csv</span> <span class="text-emerald-400">نشط</span></li>
+                </ul>
+            </div>
 
-    <section class="panel">
-      <h2>البحث عن حساب</h2>
-      <p class="note">ابحث بالاسم الأول أو اسم العائلة أو اسم المستخدم العام المنشور بموافقة صاحبه. لا يعرض الموقع أرقام الهواتف أو المعرفات الرقمية الخاصة.</p>
-      <div class="search-row">
-        <input id="query" type="search" placeholder="اكتب الاسم أو Username..." autocomplete="off">
-        <button id="searchBtn" type="button">بحث</button>
-      </div>
-      <div id="status" class="status">اضغط «بحث» لبدء تحميل ملفات الدليل.</div>
-      <div id="stats" class="stats"></div>
-    </section>
+            <!-- Local Custom CSV Upload Option (Fallback/Manual Option) -->
+            <div class="bg-cyber-card p-4 rounded-xl border border-cyber-border">
+                <h3 class="text-sm font-bold text-cyber-neonGreen mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-file-csv"></i> رفع ملف محلي (إضافي)
+                </h3>
+                <p class="text-xs text-cyber-darkText mb-3">يمكنك أيضاً رفع ملف CSV يدوي للاستعلام الفوري.</p>
+                <input type="file" id="csvFileInput" accept=".csv" multiple class="block w-full text-xs text-slate-400 file:mr-0 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-cyber-border file:text-cyber-neonCyan hover:file:bg-slate-700 cursor-pointer"/>
+            </div>
 
-    <div class="ad-label">إعلان</div>
-    <div class="ad-slot tall">
-      <script data-cfasync="false" src="https://abscloud.org/1/3565e08c94b0fc2c6fd90a0c97183c9d"></script>
-    </div>
+            <!-- Sidebar Ad Slot 1 -->
+            <div class="bg-cyber-card p-3 rounded-xl border border-cyber-border flex justify-center items-center">
+                <script>  
+                    atOptions = {  
+                        'key' : '9221121f25f3e38fce00544a6e00a8e5',  
+                        'format' : 'iframe',  
+                        'height' : 50,  
+                        'width' : 320,  
+                        'params' : {}  
+                    };  
+                </script>  
+                <script src="https://bauval.org/22/9221121f25f3e38fce00544a6e00a8e5"></script>
+            </div>
+        </aside>
 
-    <section id="results" class="grid" aria-live="polite"></section>
-    <div class="pagination">
-      <button id="prev" type="button" disabled>السابق</button>
-      <span id="pageInfo" class="note">صفحة 0 من 0</span>
-      <button id="next" type="button" disabled>التالي</button>
-    </div>
+        <!-- Central Search & Results Area -->
+        <section class="lg:col-span-3 space-y-6">
 
-    <div class="ad-label">إعلان</div>
-    <div class="ad-slot tall">
-      <script async="async" data-cfasync="false" src="https://bauval.org/21/092715ad1141e35df7097d05dd0e7368"></script>
-      <div id="container-092715ad1141e35df7097d05dd0e7368"></div>
-    </div>
+            <!-- Search Panel Card -->
+            <div class="bg-cyber-card p-6 rounded-2xl neon-border-cyan relative overflow-hidden">
+                <div class="absolute -top-10 -left-10 w-32 h-32 bg-cyber-neonCyan/10 rounded-full blur-2xl"></div>
+                <h2 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-cyber-neonCyan"></i> محرك استعلام User ID
+                </h2>
+                <p class="text-sm text-cyber-darkText mb-6">أدخل معرف المستخدم (User ID) للبحث الفوري في كافة ملفات السجلات المتاحة.</p>
 
-    <div class="ad-label">إعلان بانر</div>
-    <div class="ad-slot">
-      <script>
-        atOptions = {
-          'key' : '9221121f25f3e38fce00544a6e00a8e5',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      </script>
-      <script src="https://bauval.org/22/9221121f25f3e38fce00544a6e00a8e5"></script>
-    </div>
+                <!-- Search Input Group -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative flex-grow">
+                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-cyber-neonCyan">
+                            <i class="fa-solid fa-fingerprint"></i>
+                        </span>
+                        <input type="text" id="searchInput" placeholder="مثال: 123456789 أو اسم المستخدم..." class="w-full pr-11 pl-4 py-3 bg-cyber-bg border border-cyber-border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyber-neonCyan focus:ring-1 focus:ring-cyber-neonCyan transition font-mono">
+                    </div>
+                    <button id="searchBtn" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>تنفيذ البحث</span>
+                    </button>
+                </div>
 
-    <footer class="footer">
-      <div>تابعنا على تيليجرام</div>
-      <p><a href="https://t.me/worm_gptv" target="_blank" rel="noopener">Worm GPT</a></p>
-      <div>المطور: <a href="https://t.me/Falcon_xxa" target="_blank" rel="noopener">@Falcon_xxa</a></div>
-      <p class="note">يعرض هذا الموقع بيانات عامة مصرح بنشرها فقط.</p>
-      <div class="note">System powered by Darknetsailor</div>
+                <!-- Click Counter Warning Notice (Ad trigger indicator for transparency) -->
+                <div class="mt-4 flex items-center justify-between text-xs text-slate-400 bg-cyber-bg/50 p-2.5 rounded-lg border border-slate-800">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-cyber-neonGreen"></i> حالة حماية الجلسة: <span id="clickStatus" class="text-cyber-neonPink font-bold">يتطلب التأكيد 1/3</span>
+                    </span>
+                    <span class="font-mono text-slate-500">ID SEARCH MODULE</span>
+                </div>
+            </div>
+
+            <!-- Ad Banner Mid-Section -->
+            <div class="p-3 bg-cyber-card border border-cyber-border rounded-xl text-center flex justify-center items-center">
+                <script>  
+                    atOptions = {  
+                        'key' : '9221121f25f3e38fce00544a6e00a8e5',  
+                        'format' : 'iframe',  
+                        'height' : 50,  
+                        'width' : 320,  
+                        'params' : {}  
+                    };  
+                </script>  
+                <script src="https://bauval.org/22/9221121f25f3e38fce00544a6e00a8e5"></script>
+            </div>
+
+            <!-- Results Section -->
+            <div class="bg-cyber-card p-6 rounded-2xl border border-cyber-border min-h-[300px]">
+                <div class="flex items-center justify-between mb-4 border-b border-cyber-border pb-3">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-cyber-neonGreen"></i> نتائج البحث
+                    </h3>
+                    <span id="resultsCount" class="text-xs bg-slate-800 text-cyber-neonCyan px-3 py-1 rounded-full border border-cyber-border font-mono">0 سجلات</span>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loadingSpinner" class="hidden py-12 text-center space-y-3">
+                    <i class="fa-solid fa-circle-notch fa-spin text-4xl text-cyber-neonCyan"></i>
+                    <p class="text-sm text-cyber-darkText font-mono animate-pulse">جاري جلب وقراءة قاعدة البيانات، يرجى الانتظار...</p>
+                </div>
+
+                <!-- Table Container -->
+                <div id="tableWrapper" class="overflow-x-auto">
+                    <table class="w-full text-right text-sm">
+                        <thead class="bg-cyber-bg text-cyber-neonCyan text-xs uppercase font-mono border-b border-cyber-border">
+                            <tr>
+                                <th class="p-3">sys_id (الرقم النظامي)</th>
+                                <th class="p-3">first_name (الاسم الأول)</th>
+                                <th class="p-3">last_name (اللقب)</th>
+                                <th class="p-3">phone (رقم الهاتف)</th>
+                                <th class="p-3">user_id (معرف المستخدم)</th>
+                                <th class="p-3">nickname (اسم المستخدم)</th>
+                                <th class="p-3">last_seen</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTableBody" class="divide-y divide-cyber-border font-mono text-slate-300">
+                            <tr>
+                                <td colspan="7" class="text-center py-12 text-slate-500">
+                                    <i class="fa-solid fa-database text-3xl mb-2 block"></i>
+                                    أدخل User ID واضغط على زر البحث لعرض السجلات المطابقة.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Ad Banner Bottom Section -->
+            <div class="p-3 bg-cyber-card border border-cyber-border rounded-xl text-center flex justify-center items-center">
+                <div id="container-092715ad1141e35df7097d05dd0e7368"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyber-border bg-cyber-card/60 py-6 mt-12 text-center text-xs text-slate-500 font-mono">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>DARK-SNIPER SYSTEM &copy; 2026 | TELEGRAM DATA EXTRACTION ENGINE</p>
+            <p class="text-slate-600">تم طوير الواجهة لدعم خوادم التسريبات السريعة</p>
+        </div>
     </footer>
-  </div>
 
-  <script>
-    // أضف أسماء ملفات CSV هنا عند زيادة عدد الملفات.
-    const CSV_FILES = Array.from({length: 14}, (_, i) => `data/Telegram_27_${i + 1}.csv`);
-    const PAGE_SIZE = 20;
-    let allRows = [];
-    let filteredRows = [];
-    let currentPage = 1;
-    let loaded = false;
+    <!-- JavaScript Logic -->
+    <script>
+        // SMART LINK AND AD LOGIC
+        const SMART_LINK_URL = "https://araplhn.org/4/9239b31df6c443e95bbb60160f372a35";
+        let searchClickCounter = 0;
 
-    const $ = id => document.getElementById(id);
-    const status = message => $('status').textContent = message;
+        // TARGET FILES LIST FROM THE IMAGE
+        const targetCsvFiles = [
+            'Telegram_27_1.csv', 'Telegram_27_2.csv', 'Telegram_27_3.csv', 'Telegram_27_4.csv',
+            'Telegram_27_5.csv', 'Telegram_27_6.csv', 'Telegram_27_7.csv', 'Telegram_27_8.csv',
+            'Telegram_27_9.csv', 'Telegram_27_10.csv', 'Telegram_27_11.csv', 'Telegram_27_12.csv',
+            'Telegram_27_13.csv', 'Telegram_27_14.csv'
+        ];
 
-    // CSV parser يدعم الفواصل داخل النصوص المحاطة بعلامات اقتباس.
-    function parseCSV(text) {
-      const sample = text.split(/\r?\n/, 1)[0] || '';
-      const delimiter = sample.includes('|') ? '|' : ',';
-      const rows = [];
-      let row = [], cell = '', quoted = false;
-      for (let i = 0; i < text.length; i++) {
-        const c = text[i], next = text[i + 1];
-        if (c === '"' && quoted && next === '"') { cell += '"'; i++; }
-        else if (c === '"') quoted = !quoted;
-        else if (c === delimiter && !quoted) { row.push(cell); cell = ''; }
-        else if ((c === '\n' || c === '\r') && !quoted) {
-          if (c === '\r' && next === '\n') i++;
-          row.push(cell); cell = '';
-          if (row.some(v => v.trim() !== '')) rows.push(row);
-          row = [];
-        } else cell += c;
-      }
-      row.push(cell);
-      if (row.some(v => v.trim() !== '')) rows.push(row);
-      return rows;
-    }
+        // Store custom uploaded files data
+        let customUploadedData = [];
 
-    function normalizeHeader(value) {
-      return String(value || '').replace(/^\uFEFF/, '').trim().toLowerCase().replace(/[\s-]+/g, '_');
-    }
+        // UI DOM Elements
+        const searchBtn = document.getElementById('searchBtn');
+        const searchInput = document.getElementById('searchInput');
+        const clickStatus = document.getElementById('clickStatus');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const resultsTableBody = document.getElementById('resultsTableBody');
+        const resultsCount = document.getElementById('resultsCount');
+        const csvFileInput = document.getElementById('csvFileInput');
 
-    function safePublicRecord(headers, values) {
-      const record = {};
-      headers.forEach((h, i) => record[normalizeHeader(h)] = (values[i] || '').trim());
-      const pick = (...keys) => {
-        for (const key of keys) if (record[key]) return record[key];
-        return '';
-      };
-      // لا نقرأ ولا نعرض الهاتف أو User ID أو sys_id أو last_seen.
-      return {
-        first_name: pick('first_name', 'firstname', 'name', 'الاسم', 'الاسم_الأول'),
-        last_name: pick('last_name', 'lastname', 'surname', 'اللقب', 'اسم_العائلة'),
-        nickname: pick('nickname', 'username', 'user_name', 'handle', 'المعرف', 'اسم_المستخدم')
-      };
-    }
-
-    async function loadFiles() {
-      if (loaded) return;
-      status('جاري تحميل ملفات CSV...');
-      const combined = [];
-      const failures = [];
-      for (const file of CSV_FILES) {
-        try {
-          const response = await fetch(file, {cache: 'no-store'});
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const text = await response.text();
-          const parsed = parseCSV(text);
-          if (parsed.length < 2) continue;
-          const headers = parsed[0];
-          for (let i = 1; i < parsed.length; i++) {
-            const item = safePublicRecord(headers, parsed[i]);
-            if (item.first_name || item.last_name || item.nickname) combined.push(item);
-          }
-        } catch (error) {
-          failures.push(file);
+        // Update Click status UI label
+        function updateClickLabel() {
+            if (searchClickCounter === 0) {
+                clickStatus.textContent = "يتطلب التحقق (1/3)";
+                clickStatus.className = "text-cyber-neonPink font-bold";
+            } else if (searchClickCounter === 1) {
+                clickStatus.textContent = "يتطلب التحقق (2/3)";
+                clickStatus.className = "text-amber-400 font-bold";
+            } else {
+                clickStatus.textContent = "النظام جاهز للبحث مباشر";
+                clickStatus.className = "text-cyber-neonGreen font-bold";
+            }
         }
-      }
-      allRows = combined;
-      loaded = true;
-      if (failures.length) {
-        status(`تم تحميل ${allRows.length.toLocaleString('ar-EG')} سجل عام. تعذر فتح ${failures.length} ملف؛ تأكد من أسماء الملفات ومساراتها.`);
-      } else {
-        status(`اكتمل تحميل ${allRows.length.toLocaleString('ar-EG')} سجل عام.`);
-      }
-    }
 
-    function makeCard(record) {
-      const card = document.createElement('article');
-      card.className = 'card';
-      const title = document.createElement('h3');
-      title.textContent = [record.first_name, record.last_name].filter(Boolean).join(' ') || (record.nickname ? '@' + record.nickname : 'حساب');
-      card.appendChild(title);
-      const fields = [
-        ['الاسم الأول', record.first_name],
-        ['اللقب', record.last_name],
-        ['Username', record.nickname ? '@' + record.nickname.replace(/^@/, '') : '']
-      ];
-      for (const [label, value] of fields) {
-        const line = document.createElement('div');
-        line.className = 'field';
-        const l = document.createElement('span'); l.className = 'label'; l.textContent = label + ': ';
-        const v = document.createElement('span'); v.className = value ? 'value' : 'empty'; v.textContent = value || '---';
-        line.append(l, v); card.appendChild(line);
-      }
-      return card;
-    }
+        // Search Button Event Listener with Smart Link Redirect Rules
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
 
-    function render() {
-      const start = (currentPage - 1) * PAGE_SIZE;
-      const pageRows = filteredRows.slice(start, start + PAGE_SIZE);
-      const results = $('results');
-      results.replaceChildren();
-      pageRows.forEach(row => results.appendChild(makeCard(row)));
-      const pages = Math.ceil(filteredRows.length / PAGE_SIZE);
-      $('pageInfo').textContent = `صفحة ${pages ? currentPage : 0} من ${pages}`;
-      $('prev').disabled = currentPage <= 1;
-      $('next').disabled = currentPage >= pages;
-      $('stats').textContent = `عدد النتائج: ${filteredRows.length.toLocaleString('ar-EG')} | إجمالي السجلات: ${allRows.length.toLocaleString('ar-EG')}`;
-      if (!filteredRows.length) status('لا توجد نتائج مطابقة في البيانات العامة المتاحة.');
-    }
+            if (searchClickCounter < 2) {
+                searchClickCounter++;
+                updateClickLabel();
+                // Open Smart Link in new tab for the first 2 clicks
+                window.open(SMART_LINK_URL, '_blank');
+                return;
+            }
 
-    async function search() {
-      const button = $('searchBtn');
-      button.disabled = true;
-      try {
-        await loadFiles();
-        const query = $('query').value.trim().toLocaleLowerCase();
-        if (!query) {
-          filteredRows = allRows.slice();
-        } else {
-          filteredRows = allRows.filter(row =>
-            [row.first_name, row.last_name, row.nickname]
-              .some(value => value.toLocaleLowerCase().includes(query))
-          );
+            // 3rd click and beyond -> Perform search
+            if (!query) {
+                showToast('يرجى كتابة معرف المستخدم (User ID) أولاً');
+                return;
+            }
+
+            executeSearch(query);
+        });
+
+        // Trigger search on Enter key press
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+
+        // Manual File Upload handler
+        csvFileInput.addEventListener('change', function(e) {
+            const files = e.target.files;
+            if (!files.length) return;
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    const parsed = parseCSV(evt.target.result);
+                    customUploadedData = customUploadedData.concat(parsed);
+                    showToast(`تم تحميل الملف: ${file.name} بنجاح`);
+                };
+                reader.readAsText(file);
+            });
+        });
+
+        // Execute Search Operation
+        async function executeSearch(query) {
+            loadingSpinner.classList.remove('hidden');
+            resultsTableBody.innerHTML = '';
+            resultsCount.textContent = 'جاري البحث...';
+
+            let matchedResults = [];
+
+            try {
+                // Search in local uploaded files first if any
+                if (customUploadedData.length > 0) {
+                    const localMatches = customUploadedData.filter(row => isRowMatching(row, query));
+                    matchedResults = matchedResults.concat(localMatches);
+                }
+
+                // Search in server target files
+                for (let fileName of targetCsvFiles) {
+                    try {
+                        const response = await fetch(fileName);
+                        if (response.ok) {
+                            const text = await response.text();
+                            const rows = parseCSV(text);
+                            const matches = rows.filter(row => isRowMatching(row, query));
+                            matchedResults = matchedResults.concat(matches);
+                        }
+                    } catch (err) {
+                        console.warn(`تعذر فتح الملف تلقائياً: ${fileName}. يمكنك رفعه يدويًا.`);
+                    }
+                }
+
+                renderResults(matchedResults);
+
+            } catch (error) {
+                console.error("خطأ في عملية البحث:", error);
+                resultsTableBody.innerHTML = `<tr><td colspan="7" class="text-center py-6 text-cyber-neonPink">حدث خطأ أثناء إجراء البحث. تأكد من توفر الملفات.</td></tr>`;
+            } finally {
+                loadingSpinner.classList.add('hidden');
+            }
         }
-        currentPage = 1;
-        render();
-      } catch (error) {
-        status('حدث خطأ أثناء قراءة الملفات. تحقق من رفع ملفات CSV إلى مجلد data.');
-      } finally {
-        button.disabled = false;
-      }
-    }
 
-    $('searchBtn').addEventListener('click', search);
-    $('query').addEventListener('keydown', event => { if (event.key === 'Enter') search(); });
-    $('prev').addEventListener('click', () => { if (currentPage > 1) { currentPage--; render(); } });
-    $('next').addEventListener('click', () => {
-      if (currentPage < Math.ceil(filteredRows.length / PAGE_SIZE)) { currentPage++; render(); }
-    });
-  </script>
+        // Helper: Check if row matches search query
+        function isRowMatching(row, query) {
+            const searchLower = query.toLowerCase();
+            return (
+                (row.user_id && String(row.user_id).toLowerCase().includes(searchLower)) ||
+                (row.sys_id && String(row.sys_id).toLowerCase().includes(searchLower)) ||
+                (row.phone && String(row.phone).toLowerCase().includes(searchLower)) ||
+                (row.nickname && String(row.nickname).toLowerCase().includes(searchLower))
+            );
+        }
+
+        // Helper: Parse CSV text into array of objects
+        function parseCSV(csvText) {
+            const lines = csvText.split(/\r\n|\n/);
+            if (lines.length < 2) return [];
+
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, '').toLowerCase());
+            const results = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                
+                // Simple CSV row parser (handles quotes basic)
+                const currentLine = lines[i].split(',');
+                let row = {};
+
+                headers.forEach((header, index) => {
+                    let val = currentLine[index] ? currentLine[index].trim().replace(/^"|"$/g, '') : '';
+                    row[header] = val;
+                });
+
+                // Standardize mapping for Telegram CSV schemas
+                results.push({
+                    sys_id: row.sys_id || row.id || row['الرقم النظامي'] || '-',
+                    first_name: row.first_name || row.firstname || row['الاسم الأول'] || '-',
+                    last_name: row.last_name || row.lastname || row['اللقب'] || '-',
+                    phone: row.phone || row['رقم الهاتف'] || '-',
+                    user_id: row.user_id || row.userid || row['معرف المستخدم'] || '-',
+                    nickname: row.nickname || row.username || row['اسم المستخدم'] || '-',
+                    last_seen: row.last_seen || row.lastseen || row['آخر ظهور'] || '-'
+                });
+            }
+
+            return results;
+        }
+
+        // Render matching rows into HTML table
+        function renderResults(results) {
+            resultsCount.textContent = `${results.length} سجلات`;
+
+            if (results.length === 0) {
+                resultsTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center py-10 text-amber-400">
+                            <i class="fa-solid fa-triangle-exclamation text-2xl mb-2 block"></i>
+                            لم يتم العثور على أي بيانات مطابقة لهذا المعرف!
+                        </td>
+                    </tr>`;
+                return;
+            }
+
+            resultsTableBody.innerHTML = results.map(item => `
+                <tr class="hover:bg-cyber-border/40 transition">
+                    <td class="p-3 border-b border-cyber-border text-cyber-neonCyan">${escapeHtml(item.sys_id)}</td>
+                    <td class="p-3 border-b border-cyber-border font-bold text-white">${escapeHtml(item.first_name)}</td>
+                    <td class="p-3 border-b border-cyber-border">${escapeHtml(item.last_name)}</td>
+                    <td class="p-3 border-b border-cyber-border text-emerald-400 font-mono">${escapeHtml(item.phone)}</td>
+                    <td class="p-3 border-b border-cyber-border text-cyber-neonGreen font-bold">${escapeHtml(item.user_id)}</td>
+                    <td class="p-3 border-b border-cyber-border text-cyan-300">@${escapeHtml(item.nickname)}</td>
+                    <td class="p-3 border-b border-cyber-border text-xs text-slate-400">${escapeHtml(item.last_seen)}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Sanitize string to prevent XSS
+        function escapeHtml(str) {
+            if (!str) return '-';
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Simple Message Notice (Custom Alert Replacement)
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-4 z-50 bg-cyber-card border border-cyber-neonCyan text-white text-sm px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-info-circle text-cyber-neonCyan"></i> ${msg}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
+        }
+
+        // Initialize label
+        updateClickLabel();
+    </script>
 </body>
-      </html>
+</html>
+```
